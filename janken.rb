@@ -9,12 +9,11 @@ class Player
      input_hand = gets.chomp
      while true
        if input_hand == "0" || input_hand == "1" || input_hand == "2"
-         return input_hand
+         return input_hand.to_i
        else
          puts "もう一度数字を入力してください。"
          puts "0:グー, 1:チョキ, 2:パー"
          input_hand = gets.chomp
-
        # puts "数字で入力してください。"
        # return input_hand
     # 「input_hand」(取得した値)が「0, 1, 2」のいずれかだとwhileから脱出させ、それ以外だと初めから繰り返させます。
@@ -65,7 +64,7 @@ class Janken
       #  elsif もしも下記の組み合わせだった場合
       # 「あなたの勝ちです」を出力します。
       # whileを終了させる「false」を返してじゃんけんを終了させます。
-    elsif (player_hand == "0" && enemy_hand == 1) || (player_hand == "1" && enemy_hand == 2) || (player_hand == "2" && enemy_hand == 0)
+    elsif (player_hand == 0 && enemy_hand == 1) || (player_hand == 1 && enemy_hand == 2) || (player_hand == 2 && enemy_hand == 0)
           puts "あなたの勝ちです。"
           return false
       #  else ※条件以外の場合

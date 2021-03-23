@@ -6,22 +6,28 @@ class Player
     puts "0:グー, 1:チョキ, 2:パー"
     # 変数「input_hand」にプレイヤーが入力したものを取得して代入します。
       # ヒント! 「getsメソッド」を使用します。
-     input_hand = gets.to_i
+     input_hand = gets.chomp
+     while true
+       if input_hand == "0" || input_hand == "1" || input_hand == "2"
+         return input_hand
+       else
+         puts "もう一度数字を入力してください。"
+         puts "0:グー, 1:チョキ, 2:パー"
+         input_hand = gets.chomp
+
+       # puts "数字で入力してください。"
+       # return input_hand
     # 「input_hand」(取得した値)が「0, 1, 2」のいずれかだとwhileから脱出させ、それ以外だと初めから繰り返させます。
       # ヒント! 「while」と「if」を使用します。
 #       # 以降の型の例に沿って実装しましょう ※実装する時場合はコメントアウトに注意しましょう
-    while true
-      if input_hand == 0 || input_hand == 1 || input_hand == 2
-        return input_hand
-      else
+
+
 #         # if 条件を書く (「input_hand」(取得した値)が「0, 1, 2」のいずれかの場合だった場合)
 #           # 「input_hand」(取得した値)をそのまま返します。
 #             # ヒント！ 「return」を使用します。
 #         # else ※条件以外の場合
 #           # 「プレイヤーに 0 ~ 2を入力させる文章」を表示させます。
-        puts "もう一度数字を入力してください。"
-        puts "0:グー, 1:チョキ, 2:パー"
-        input_hand = gets.to_i
+
 #           # 変数「input_hand」にプレイヤーが入力したものを取得して代入します。
 #         # end if文のend
 #       # end while文のend
@@ -34,7 +40,7 @@ end
 class Enemy
   def hand
     # グー、チョキ、パーの値をランダムに出力させます。
-    i = rand(0..2)
+    i = rand(3)
     puts i
     return i
   end
@@ -59,7 +65,7 @@ class Janken
       #  elsif もしも下記の組み合わせだった場合
       # 「あなたの勝ちです」を出力します。
       # whileを終了させる「false」を返してじゃんけんを終了させます。
-        elsif (player_hand == 0 && enemy_hand == 1) || (player_hand == 1 && enemy_hand == 2) || (player_hand == 2 && enemy_hand == 0)
+    elsif (player_hand == "0" && enemy_hand == 1) || (player_hand == "1" && enemy_hand == 2) || (player_hand == "2" && enemy_hand == 0)
           puts "あなたの勝ちです。"
           return false
       #  else ※条件以外の場合
